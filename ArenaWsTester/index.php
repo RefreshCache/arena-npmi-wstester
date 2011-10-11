@@ -7,7 +7,11 @@ $environments['dev'] = new ArenaWsClient ('http://dev.myarenaurl.com/api.svc/',
 										'493f0a10-62ac-4a68-83ee-9fbb8a49c200',
 										'9233b3f9-9a6d-4012-949b-a160bef8ad44' );
 	
-$environments['staging'] =  new ArenaWsClient ('http://staging.myarenaurl.com/api.svc/',
+$environments['prod'] =  new ArenaWsClient ('http://.myarenaurl.com/api.svc/',
+											 '493f0a10-62ac-4a68-83ee-9fbb8a49c200',
+											 '9233b3f9-9a6d-4012-949b-a160bef8ad44');
+
+$environments['refreshcache'] =  new ArenaWsClient ('http://arena.refreshcache.com/Arena/api.svc/',
 											 '493f0a10-62ac-4a68-83ee-9fbb8a49c200',
 											 '9233b3f9-9a6d-4012-949b-a160bef8ad44');
 
@@ -55,6 +59,7 @@ function callArena($params) {
 		$html = '<h3>Arena WS Call Successful</h3>
 			<p>
 			<strong>Server-side Execution Time: </strong>'.number_format($runtime,3,'.','').' ms</strong><br />
+			<strong>Web Services Base URL: </strong>'.$ws->baseUrl.'</strong><br />
 			<strong>Web Services URI: </strong>'.$uri.'</strong><br />
 			<strong>Web Services Params: </strong><pre>'.print_r($args,true).'</pre><br />
 			<strong>Session ID: </strong>'.$sid.'</strong></p>
